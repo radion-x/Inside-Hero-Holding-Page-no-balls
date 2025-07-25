@@ -33,7 +33,7 @@
         .training-brave-text {
             position: fixed;
             top: 50%;
-            left: 50%;
+            left: 58%;
             transform: translate(-50%, -50%);
             z-index: 1000;
             max-width: 400px;
@@ -43,40 +43,6 @@
             width: 100%;
             height: auto;
             filter: brightness(0);
-        }
-        
-        /* Mobile responsive styles */
-        @media (max-width: 768px) {
-            .training-brave-text {
-                max-width: 90%;
-                width: 90%;
-                left: 50%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .training-brave-text {
-                max-width: 95%;
-                width: 95%;
-            }
-            
-            /* Ensure navbar is properly sized on mobile */
-            .navbar-brand img {
-                max-height: 40px;
-                width: auto;
-            }
-            
-            /* Adjust floating shapes opacity on mobile for better readability */
-            .ts-shapes-canvas .ts-background-image {
-                opacity: 0.2 !important;
-            }
-        }
-        
-        @media (max-width: 320px) {
-            .training-brave-text {
-                max-width: 98%;
-                width: 98%;
-            }
         }
         .navbar-brand img {
             filter: brightness(0);
