@@ -47,26 +47,6 @@
         .navbar-brand img {
             filter: brightness(0);
         }
-        /* Style floating shapes to match rock background colors */
-        .ts-background-image {
-            filter: sepia(1) hue-rotate(35deg) saturate(0.6) brightness(0.7) contrast(1.1) !important;
-        }
-        /* Make some shapes more sandstone-like */
-        .ts-shapes-canvas .ts-background-image:nth-child(odd) {
-            filter: sepia(0.9) hue-rotate(20deg) saturate(0.8) brightness(0.8) contrast(1.2) !important;
-            opacity: 0.5 !important;
-        }
-        .ts-shapes-canvas .ts-background-image:nth-child(even) {
-            filter: sepia(1.2) hue-rotate(40deg) saturate(0.5) brightness(0.6) contrast(1.3) !important;
-            opacity: 0.4 !important;
-        }
-        /* Specific sandstone colors for certain shapes */
-        .ts-shapes-canvas .ts-background-image:nth-child(3),
-        .ts-shapes-canvas .ts-background-image:nth-child(7),
-        .ts-shapes-canvas .ts-background-image:nth-child(11) {
-            filter: sepia(1.3) hue-rotate(15deg) saturate(0.7) brightness(0.75) contrast(1.4) !important;
-            opacity: 0.6 !important;
-        }
     </style>
 	<title>CryptoSoon - Coming Soon Template</title>
 
@@ -153,22 +133,6 @@
         <!--end container-->
 
         <!--BACKGROUND **********************************************************************************************-->
-        <div class="ts-background ts-shapes-canvas position-fixed ts-separate-bg-element" data-bg-color="transparent">
-            <div class="ts-background-image ts-animate ts-scale" data-bg-image="assets/img/bg/14.png" data-bg-opacity=".1"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/13.png"></div>
-            <div class="ts-background-image ts-animate ts-scale" data-bg-image="assets/img/bg/12.png" data-bg-opacity=".3"></div>
-            <div class="ts-background-image ts-animate ts-scale" data-bg-image="assets/img/bg/11.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/10.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/9.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/8.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/7.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/6.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate" data-bg-image="assets/img/bg/5.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/4.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/3.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/2.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/1.png" data-bg-opacity=".8"></div>
-        </div>
         <!--end ts-background-->
     </div>
     <!--end ts-page-wrapper-->
