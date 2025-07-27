@@ -18,6 +18,7 @@
         .ts-page-wrapper {
             background: transparent !important;
         }
+        /* Hide original template content */
         .ts-count-down {
             display: none !important;
         }
@@ -30,6 +31,21 @@
         .ts-social-icons {
             display: none !important;
         }
+        /* Completely hide the side panel and all its content */
+        .ts-side-panel {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        /* Hide any buttons that might trigger popups */
+        .ts-open-side-panel,
+        .video-popup {
+            display: none !important;
+        }
+        /* Hide footer social icons */
+        #footer .ts-social-icons {
+            display: none !important;
+        }
+        /* Position custom branding elements */
         .training-brave-text {
             position: fixed;
             top: 60%;
@@ -45,6 +61,19 @@
         }
         .navbar-brand img {
             width: 400px;
+        }
+        /* Prevent any modal or popup from appearing */
+        .modal,
+        .mfp-bg,
+        .mfp-wrap,
+        .magnific-popup {
+            display: none !important;
+        }
+        /* Disable pointer events on elements that might trigger popups */
+        .ts-background-image,
+        .ts-shape,
+        .ts-shapes-canvas * {
+            pointer-events: none !important;
         }
     </style>
 	<title>Inside Hero - Training The Brave</title>
@@ -335,7 +364,8 @@
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58"></script>
+    <!-- Google Maps disabled for clean landing page -->
+    <!-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58"></script> -->
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
 	<script src="assets/js/jquery.countdown.min.js"></script>
 	<script src="assets/js/jquery.validate.min.js"></script>
@@ -343,8 +373,35 @@
 
     <script src="assets/js/custom.js"></script>
 
-    <!--Google map-->
+    <!-- Disable all popup functionality -->
+    <script>
+        $(document).ready(function() {
+            // Prevent side panel from ever opening
+            $("body").removeClass("ts-side-panel-active");
+            
+            // Remove all event handlers that could trigger popups
+            $(".ts-open-side-panel").off("click").removeAttr("href").css("pointer-events", "none");
+            $(".video-popup").off("click").removeAttr("href").css("pointer-events", "none");
+            $(".popup-popup").off("click").removeAttr("href").css("pointer-events", "none");
+            
+            // Disable magnific popup completely
+            if (typeof $.magnificPopup !== 'undefined') {
+                $.magnificPopup.close();
+                $.magnificPopup.instance = null;
+            }
+            
+            // Prevent any clicks on interactive elements
+            $(".ts-background-image, .ts-shape, .ts-shapes-canvas *").off("click");
+            
+            // Override any functions that might trigger popups
+            if (window.magnificPopup) {
+                window.magnificPopup = function() { return false; };
+            }
+        });
+    </script>
 
+    <!--Google map disabled for clean landing page-->
+    <!--
     <script>
         var latitude = 34.038405;
         var longitude = -117.946944;
@@ -352,8 +409,8 @@
         var mapElement = "map";
         var mapStyle = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#dbdbdb"},{"visibility":"on"}]}];
         google.maps.event.addDomListener(window, 'load', simpleMap(latitude, longitude, markerImage, mapStyle, mapElement));
-
     </script>
+    -->
 
 </body>
 </html>
