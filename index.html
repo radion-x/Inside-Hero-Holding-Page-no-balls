@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         body {
-            background: url('assets/img/background.jpg') no-repeat center center fixed !important;
+            background: url('assets/img/background.jpg') no-repeat center 30% fixed !important;
             background-size: cover !important;
         }
         .ts-page-wrapper {
@@ -64,16 +64,17 @@
         }
         .navbar-brand {
             display: flex !important;
-            justify-content: center !important;
-            width: 100% !important;
-            margin: 0 auto !important;
+            justify-content: flex-start !important;
+            width: auto !important;
+            margin: 0 !important;
         }
         .navbar-brand img {
-            width: 300px;
+            width: 200px;
             max-width: 75vw;
         }
         .navbar {
-            justify-content: center !important;
+            justify-content: flex-start !important;
+            padding: 20px 0;
         }
         
         /* Contact Elements Styling */
@@ -127,6 +128,14 @@
         
         /* Mobile Responsive Improvements */
         @media (max-width: 768px) {
+            .navbar {
+                justify-content: center !important;
+            }
+            .navbar-brand {
+                justify-content: center !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
             .navbar-brand img {
                 width: 220px;
                 max-width: 70vw;
@@ -156,6 +165,14 @@
         }
         
         @media (max-width: 480px) {
+            .navbar {
+                justify-content: center !important;
+            }
+            .navbar-brand {
+                justify-content: center !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
             .navbar-brand img {
                 width: 180px;
             }
@@ -184,6 +201,14 @@
         }
         
         @media (max-width: 360px) {
+            .navbar {
+                justify-content: center !important;
+            }
+            .navbar-brand {
+                justify-content: center !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
             .navbar-brand img {
                 width: 160px;
             }
@@ -249,8 +274,8 @@
             <!--NAVIGATION ******************************************************************************************-->
             <header id="header">
                 <nav class="navbar navbar-light ts-separate-bg-element">
-                    <a class="navbar-brand" href="#">
-                        <img src="logo-inside-hero.svg" alt="">
+                    <a class="navbar-brand" href="#" title="Inside Hero - Home">
+                        <img src="logo-inside-hero-black.svg" alt="Inside Hero Logo">
                     </a>
                     <!--end navbar-brand-->
                     <button class="navbar-toggler ts-open-side-panel" type="button" aria-label="Toggle navigation">
@@ -267,7 +292,7 @@
                 <div class="ts-content-wrapper">
                     <!-- Training the Brave SVG positioned in center -->
                     <div class="training-brave-text">
-                        <img src="Training the brave.svg" alt="Training the Brave">
+                        <img src="Training the brave-black.svg" alt="Training the Brave">
                     </div>
                     
                     <!-- Contact Elements -->
