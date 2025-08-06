@@ -292,6 +292,78 @@
         .ts-shapes-canvas * {
             pointer-events: none !important;
         }
+        
+        /* Watch This Space Animation */
+        .watch-this-space {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #000000;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .typewriter-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            display: inline;
+            white-space: nowrap;
+        }
+
+        .cursor {
+            display: inline;
+            background-color: #000000;
+            width: 2px;
+            height: 1.2em;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0;
+            }
+        }
+
+        /* Mobile responsive for watch this space */
+        @media (max-width: 768px) {
+            .watch-this-space {
+                font-size: 14px;
+                letter-spacing: 2px;
+                bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .watch-this-space {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+                bottom: 10px;
+            }
+        }
     </style>
 	<title>Inside Hero - Training The Brave</title>
 
@@ -340,6 +412,13 @@
                             <span>0412 371 571</span>
                         </a>
                     </div>
+                    
+                    <!-- Watch This Space Animation -->
+                    <div class="watch-this-space">
+                        <span class="typewriter-text" id="typewriter"></span>
+                        <span class="cursor"></span>
+                    </div>
+                    
                     <div class="row">
                         <!--Page Title-->
                         <div class="col-md-6">
@@ -626,6 +705,54 @@
             if (window.magnificPopup) {
                 window.magnificPopup = function() { return false; };
             }
+            
+            // Professional Typewriter Effect
+            function typeWriter() {
+                const text = "WATCH THIS SPACE...";
+                const typewriterElement = document.getElementById('typewriter');
+                let isTyping = false;
+                
+                function startTypewriter() {
+                    if (isTyping) return;
+                    isTyping = true;
+                    
+                    // Clear any existing text
+                    typewriterElement.textContent = "";
+                    let charIndex = 0;
+                    
+                    function typeNextChar() {
+                        if (charIndex < text.length) {
+                            typewriterElement.textContent += text.charAt(charIndex);
+                            charIndex++;
+                            setTimeout(typeNextChar, 150); // 150ms per character
+                        } else {
+                            // Text is complete, wait 3 seconds then erase
+                            setTimeout(startErasing, 3000);
+                        }
+                    }
+                    
+                    function startErasing() {
+                        function eraseChar() {
+                            if (typewriterElement.textContent.length > 0) {
+                                typewriterElement.textContent = typewriterElement.textContent.slice(0, -1);
+                                setTimeout(eraseChar, 100); // 100ms per character when erasing
+                            } else {
+                                // Text is erased, wait 1 second then start typing again
+                                isTyping = false;
+                                setTimeout(startTypewriter, 1000);
+                            }
+                        }
+                        eraseChar();
+                    }
+                    
+                    typeNextChar();
+                }
+                
+                // Start the typewriter effect after page loads and fade-in completes
+                setTimeout(startTypewriter, 2500);
+            }
+            
+            typeWriter();
         });
     </script>
 
